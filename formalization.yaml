@@ -1,0 +1,154 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# formalization.yaml v0.4 (mathlib-initiative format, Palomar registry rules).
+version: v0.4
+project:
+  name: 'Erdős problem #126: proof'
+  description: 'Proof of Erdős problem #126 in Lean 4 with Mathlib. The conjecture is true: `f(n) / log n → ∞`.
+    Formally, the theorem proved is the Formal Conjectures statement `Erdos126.erdos_126`: for every `f : ℕ → ℕ`
+    satisfying `IsMaximalAddFactorsCard f` (which pins `f` down as the function above), `f n / log n → ∞`. The four
+    resolutions in this repository prove polynomial lower bounds `f(n) ≫ n^c` with, according to their own module
+    documentation, `c = 1/8` (primary), `1/3`, `1/2` and `1/5`; only the limit statement is advertised in `Challenge.lean`.
+    Since `A = {1, …, n}` gives `|S(A)| ≪ n / log n`, the truth lies between `n^{1/2}` and `n / log n`. The proof
+    was produced autonomously by a pre-release version of GPT-6 Astra (OpenAI) in the FrontierMath Erdős benchmark
+    of Epoch AI and Thomas F. Bloom, in which AI systems must prove or disprove formal statements of open Erdős
+    problems inside a sandboxed Lean environment; the statement was taken from Formal Conjectures and was open as
+    of August 2026. The repository contains 4 verified resolutions of the statement (one is wired to Comparator);
+    the human contribution is limited to problem selection, statement review, running the harness and packaging.'
+  authors:
+  - Tom Adamczewski
+  license: Apache-2.0
+  responsible_maintainers:
+  - Tom Adamczewski
+classification:
+  arxiv:
+  - math.NT
+  msc2020:
+  - 11B75
+  - 11A41
+sources:
+- title: 'Proof of Erdős problem #126: If f(n) is the least number of distinct primes dividing ∏_{a≠b∈A}(a+b) over
+    n-element sets A ⊆ ℕ, then f(n)/log n → ∞.'
+  type: original-proof
+  relationship: other
+  note: This formalization is the first presentation of the result. The Lean proof was found by a pre-release version
+    of GPT-6 Astra, working autonomously in the FrontierMath Erdős benchmark harness; no human wrote or steered
+    the proof. Novelty of the ideas relative to the literature has not been established; the resolution itself is
+    new (the problem was listed as open on erdosproblems.com as of August 2026).
+- title: 'Erdős problem #126 (erdosproblems.com)'
+  type: web discussion
+  contributors:
+  - name: Paul Erdős
+    role: problem proposer
+  - name: Thomas F. Bloom
+    role: curator of erdosproblems.com
+  id: https://www.erdosproblems.com/126
+  location: https://www.erdosproblems.com/126
+  relationship: background
+  note: Problem page with statement, history, references and (since the resolution) an informal exposition by Thomas
+    F. Bloom.
+- title: On a Problem in the Elementary Theory of Numbers
+  authors:
+  - Paul Erdős
+  - Paul Turán
+  type: paper
+  id: https://doi.org/10.2307/2301909
+  location: Amer. Math. Monthly 41 (1934), no. 10, pp. 608–611
+  relationship: background
+  note: Origin of the problem and of the bounds log n ≪ f(n) ≪ n / log n.
+- title: FrontierMath Erdős
+  authors:
+  - Tom Adamczewski
+  - Thomas F. Bloom
+  type: paper
+  location: https://github.com/epoch-research/LeanOpenProblems
+  relationship: background
+  note: Manuscript (Epoch AI and University of Manchester, 2026) describing the benchmark of 68 open Erdős problems,
+    the agent harness, the verification protocol and the results; this resolution is reported in its Results section
+    and summarised in its appendix. The benchmark and Lean statements are at the given repository.
+related_formalizations:
+- id: https://github.com/google-deepmind/formal-conjectures/blob/488aade228ec37880b8fec178c173c07d279bb53/FormalConjectures/ErdosProblems/126.lean
+  relationship: builds-on
+  note: Formal Conjectures states the conjecture (and its definitions) with `sorry` as an open problem; the definitions
+    and statement here are copied verbatim from this file at this commit, and the compared theorem is that statement,
+    proved.
+- id: https://github.com/epoch-research/LeanOpenProblems/blob/77882c437ca1dfefab3b27fa00f1d29788100311/apn/data/erdos/Isolated/Erdos126.erdos_126.lean
+  relationship: builds-on
+  note: The isolated statement file given to the AI system in the FrontierMath Erdős benchmark (derived from the
+    Formal Conjectures file above).
+status:
+  scope: 'Fully formalized: the compared theorem `Erdos126.erdos_126` in `Challenge.lean` is proved in `Solution.lean`
+    via the imported module `Erdos126.Resolutions.Erdos126_132usd_25h` with no `sorry` and no axioms beyond propext,
+    Quot.sound and Classical.choice. The 3 further module(s) in `Erdos126/Resolutions/` are independent complete
+    proofs of the same statement, built as the separate Lake library `Erdos126Alternates` but not compared by Comparator.
+    Only the conjectured statement is advertised; stronger quantitative bounds visible inside the proofs are not
+    part of the compared statement. Nothing about the informal problem was omitted or weakened relative to the benchmark''s
+    formal statement; see fidelity.divergences for the relation between that formal statement and the informal problem.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+automation:
+  methods:
+  - method: autonomous
+    models:
+    - GPT-6 Astra (pre-release version, OpenAI)
+    framework: Inspect AI (UK AISI) with the LeanOpenProblems task harness; deepagent-based agent for default-configuration
+      attempts, basic ReAct agent for the larger-budget attempts
+    tool_setup: The model worked alone in a Docker container without network access, with bash, a text editor, a
+      resource-budget tool, a Lean 4 toolchain (v4.27.0) with Mathlib (via Formal Conjectures at commit 488aade228ec),
+      SageMath, Python (sympy, mpmath, numpy, pantograph) and, in the default configuration, subagents, persistent
+      memory, a todo list and an offline snapshot of about 476,000 pure-mathematics arXiv LaTeX sources (proof-pile,
+      up to 2022). Its submission was checked in a separate pristine container by Comparator (Lean FRO) against
+      the trusted statement, permitting only the three standard axioms.
+    cost:
+      wall_time: 25 hours of agent working time for the primary resolution (default configuration, 28 Aug 2026 (benchmark
+        run)); 70 hours across all 4 resolutions included here
+      spend_usd: 132 USD metered for the primary resolution at GPT-5.6 Sol per-token prices (the pre-release model's
+        prices were unpublished at the time); the FrontierMath Erdős paper recomputes costs at GPT-6 Astra's actual
+        prices, about 1.8–2.0 times higher
+      hardware: API-only inference; the agent's sandbox ran on Epoch AI's cloud evaluation infrastructure (Hawk)
+    prompting_notes: 'Fixed task prompt from the harness (apn/prompts.py in LeanOpenProblems): settle the conjecture
+      in Spec.lean by filling the `sorry` of either the statement or its `.disproof` negation without altering either
+      statement or the imports, using only the permitted axioms; a description of the available tools; and general
+      encouragement that open conjectures are not infeasible. No problem-specific hints or human interaction. Transcripts
+      are linked in the README.'
+  spend_usd: 450 USD metered across the 4 resolution attempt(s) included in this repository (see method notes for
+    the price basis); the paper reports over 220,000 USD of compute across all attempts on all 68 benchmark problems
+  notes: 'The Lean development was written entirely by the AI system inside the benchmark harness. Humans (Thomas
+    F. Bloom) selected the problem and reviewed the formal statement for faithfulness before the run; humans (Tom
+    Adamczewski) ran the harness and, after the run, packaged the verified output into this repository. The only
+    edits to the AI-written files are mechanical and are listed in the README: removed trailing unused stub `theorem
+    Erdos126.erdos_126.disproof : ¬ (type_of% @Erdos126.erdos_126) := sorry`.'
+fidelity:
+  divergences: 'The compared theorem is exactly the Formal Conjectures statement. The definition `IsMaximalAddFactorsCard
+    f` says that for every `n`, `f n` is the greatest `m` such that every `n`-element `A : Finset ℕ` has at least
+    `m` distinct prime factors in `∏_{(a,b) ∈ A.offDiag} (a + b)` (product over ordered pairs `a ≠ b`; the same
+    prime set as over unordered pairs). Such an `f` exists and is unique (the primary resolution verifies existence,
+    uniqueness and monotonicity in its `Independent126` section), so the hypothesis is not vacuous; `A` may contain
+    `0`, which changes `|S(A)|` by at most one relative to positive sets. The conclusion `Tendsto (fun n => f n
+    / Real.log n) atTop atTop` coerces `f n` to `ℝ`; `Real.log n` is positive for `n ≥ 2`. The stronger polynomial
+    bounds proved internally are not part of the compared statement.'
+review:
+  status: 'mechanically verified (Comparator: Lean kernel replay, standard axioms only) in the benchmark harness
+    and again in this repository''s CI; preliminary informal reading of the argument by Thomas F. Bloom; no independent
+    refereeing'
+  reviewers:
+  - Thomas F. Bloom
+  notes: 'Statement audit: the formal statement was selected and reviewed for faithfulness to the informal problem
+    by Thomas F. Bloom before the benchmark run (for Formal Conjectures statements he chose the representative statement;
+    autoformalized statements he checked individually). Mathematical review: the resolution was verified by Comparator
+    against the trusted statement; Thomas F. Bloom made an initial, informal examination of the argument and wrote
+    a short exposition (FrontierMath Erdős appendix and erdosproblems.com). The paper states that the proofs have
+    not yet been properly digested by human experts.'
+alignment:
+  namespace: Erdos126
+  statements:
+  - source: erdosproblems.com/126, as formalized in Formal Conjectures (`Erdos126.erdos_126`)
+    lean: Erdos126.erdos_126
+    module: Challenge
+    status: proved
+    note: The compared theorem is the formal conjecture itself. Its exact text is identical to the benchmark statement
+      (Comparator enforces this against the imported proof module).
+acknowledgements: Lean 4, Mathlib and the Lean FRO's Comparator; Google DeepMind's Formal Conjectures project for
+  the formal statements of the Erdős problems it covers; Thomas F. Bloom (erdosproblems.com) for problem selection,
+  statement review and the informal expositions; Epoch AI for running the benchmark; OpenAI for pre-release access
+  to GPT-6 Astra; the Palomar registry template for the repository layout.

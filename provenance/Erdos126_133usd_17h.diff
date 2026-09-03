@@ -1,0 +1,8 @@
+--- astra-resolutions/Erdos126_133usd_17h.lean
++++ Erdos126/Resolutions/Erdos126_133usd_17h.lean
+@@ -1,4 +1,4 @@
+-import FormalConjecturesUtil
++import Mathlib
+ 
+ /-!
+ # Erdős Problem 126

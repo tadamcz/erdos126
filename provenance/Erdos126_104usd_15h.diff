@@ -1,0 +1,14 @@
+--- astra-resolutions/Erdos126_104usd_15h.lean
++++ Erdos126/Resolutions/Erdos126_104usd_15h.lean
+@@ -1,4 +1,4 @@
+-import FormalConjecturesUtil
++import Mathlib
+ 
+ /-!
+ # Erdős Problem 126
+@@ -2340,5 +2340,3 @@
+   exact Erdos126Limit.tendsto_of_quadratic hf Erdos126Arithmetic.quadraticBound
+ 
+ end Erdos126
+-
+-theorem Erdos126.erdos_126.disproof : ¬ (type_of% @Erdos126.erdos_126) := sorry

@@ -1,0 +1,14 @@
+--- astra-resolutions/Erdos126_81usd_13h.lean
++++ Erdos126/Resolutions/Erdos126_81usd_13h.lean
+@@ -1,4 +1,4 @@
+-import FormalConjecturesUtil
++import Mathlib
+ 
+ /-!
+ # Erdős Problem 126
+@@ -836,5 +836,3 @@
+   simpa only [IsMaximalAddFactorsCard, Erdos126Adelic.restrictedSumProduct] using hf
+ 
+ end Erdos126
+-
+-theorem Erdos126.erdos_126.disproof : ¬ (type_of% @Erdos126.erdos_126) := sorry

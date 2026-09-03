@@ -3,18 +3,9 @@
 version: v0.4
 project:
   name: 'Erdős problem #126: proof'
-  description: 'Proof of Erdős problem #126 in Lean 4 with Mathlib. The conjecture is true: `f(n) / log n → ∞`.
-    Formally, the theorem proved is the Formal Conjectures statement `Erdos126.erdos_126`: for every `f : ℕ → ℕ`
-    satisfying `IsMaximalAddFactorsCard f` (which pins `f` down as the function above), `f n / log n → ∞`. The four
-    resolutions in this repository prove polynomial lower bounds `f(n) ≫ n^c` with, according to their own module
-    documentation, `c = 1/8` (primary), `1/3`, `1/2` and `1/5`; only the limit statement is advertised in `Challenge.lean`.
-    Since `A = {1, …, n}` gives `|S(A)| ≪ n / log n`, the truth lies between `n^{1/2}` and `n / log n`. The proof
-    was produced autonomously by a pre-release version of GPT-6 Astra (OpenAI) in the FrontierMath Erdős benchmark
-    of Tom Adamczewski and Thomas F. Bloom (2026), in which AI systems must prove or disprove formal statements
-    of open Erdős problems inside a sandboxed Lean environment; the statement was taken from Formal Conjectures
-    and was open as of August 2026. The repository contains 4 verified resolutions of the statement (one is wired
-    to Comparator); the human contribution is limited to problem selection, statement review, running the harness
-    and packaging.'
+  description: 'Proof of Erdős problem #126: if f(n) is the least number of distinct primes dividing ∏_{a≠b∈A} (a+b)
+    over n-element sets A ⊆ ℕ, then f(n)/log n → ∞. Found autonomously by GPT-6 Astra in the FrontierMath Erdős
+    benchmark (Adamczewski and Bloom, 2026).'
   authors:
   - name: Tom Adamczewski
     github: tadamcz

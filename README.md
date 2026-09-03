@@ -67,9 +67,9 @@ The Inspect transcripts are linked for the record (access may be restricted).
 
 | Module | Role | Attempt | Cost | Working time | Tokens, millions (input / output / cache read / cache write) | Inspect log |
 |---|---|---|---|---|---|---|
-| `Erdos126/Resolutions/Erdos126_132usd_25h.lean` | **primary** (wired to `Solution.lean`) | default configuration, 28 Aug 2026 (benchmark run) | $247 | 16.0 h | 0.06 / 1.8 / 53 / 8.3 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/bqPssUuruCU6eDwz4nqbfM) |
-| `Erdos126/Resolutions/Erdos126_81usd_13h.lean` | alternate | default configuration, 31 Aug 2026 | $154 | 8.0 h | 0.02 / 0.9 / 38 / 5.5 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/DXzbqAfpFPKfbStZgpYCp2) |
-| `Erdos126/Resolutions/Erdos126_104usd_15h.lean` | alternate | default configuration, 2 Sep 2026 | $194 | 9.0 h | 0.03 / 1.3 / 40 / 7.0 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/i3Mx3xcww5sLaYuDcJ9UdS) |
+| `Erdos126/Resolutions/Erdos126_132usd_25h.lean` | **primary** (wired to `Solution.lean`) | default configuration, 28 Aug 2026 (benchmark run) | $247 | 15.8 h | 0.06 / 1.8 / 53 / 8.3 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/bqPssUuruCU6eDwz4nqbfM) |
+| `Erdos126/Resolutions/Erdos126_81usd_13h.lean` | alternate | default configuration, 31 Aug 2026 | $154 | 8.4 h | 0.02 / 0.9 / 38 / 5.5 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/DXzbqAfpFPKfbStZgpYCp2) |
+| `Erdos126/Resolutions/Erdos126_104usd_15h.lean` | alternate | default configuration, 2 Sep 2026 | $194 | 9.5 h | 0.03 / 1.3 / 40 / 7.0 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/i3Mx3xcww5sLaYuDcJ9UdS) |
 | `Erdos126/Resolutions/Erdos126_133usd_17h.lean` | alternate | ReAct agent, larger budget, 26 Aug 2026 | $249 | 17.0 h | 0.02 / 1.7 / 77 / 7.1 | [transcript](https://viewer.hawk.hawkbench.com/permalink/sample/WKGPdZNjMC8ehBvW4P6WiD) |
 
 ## Proof account
